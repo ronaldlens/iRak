@@ -45,8 +45,7 @@ struct Rak: Identifiable, Hashable {
     }
     
     let id: Int
-    var from: CLLocationCoordinate2D
-    var to: CLLocationCoordinate2D
+    var coords: [CLLocationCoordinate2D]
     var times: Int
     
     func hash(into hasher: inout Hasher) {
@@ -64,9 +63,6 @@ class ReadData {
     }
     
     func loadBoeienEnRakken() {
-        var boeienSrc: [BoeiSrc]
-        var rakkenSrc: [RakSrc]
-        
         guard let url = Bundle.main.url(forResource: "boeien", withExtension: "json")
         else {
             print("boeien.json not found")
@@ -74,7 +70,7 @@ class ReadData {
         }
         let boeiData = try? Data(contentsOf: url)
         do {
-            boeienSrc = try JSONDecoder().decode([BoeiSrc].self, from: boeiData!)
+            let boeienSrc = try JSONDecoder().decode([BoeiSrc].self, from: boeiData!)
             addBoeiLocations(src: boeienSrc)
         } catch {
             print("error \(error)")
@@ -108,6 +104,24 @@ class ReadData {
     }
     
     func addRakkenLocations(src: [RakSrc]) {
-        
+        for rakSrc in src {
+            let id = rakSrc.nr
+            let boeiVan = findBoei(naam: rakSrc.van)
+            let boeiNaar = findBoei(naam: rakSrc.naar)
+            let locationVan = boeiVan.location
+            let locationNaar = boeiNaar.location
+            let rak = Rak(id: id, coords: [locationVan, locationNaar], times: 2)
+            rakken.append(rak)
+        }
+    }
+    
+    func findBoei(naam: String) -> Boei {
+        for boei in boeien {
+            if naam == boei.naam {
+                return boei
+            }
+        }
+        print("boei \(naam) van rakniet gevonden")
+        return boeien[0]
     }
 }

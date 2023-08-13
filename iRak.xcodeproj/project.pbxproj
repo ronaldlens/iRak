@@ -15,6 +15,7 @@
 		6B3975422A87B8E500C99AF0 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3975412A87B8E500C99AF0 /* Data.swift */; };
 		6B3975452A87BA4F00C99AF0 /* rakken.json in Resources */ = {isa = PBXBuildFile; fileRef = 6B3975432A87BA4F00C99AF0 /* rakken.json */; };
 		6B3975462A87BA4F00C99AF0 /* boeien.json in Resources */ = {isa = PBXBuildFile; fileRef = 6B3975442A87BA4F00C99AF0 /* boeien.json */; };
+		6BCE2AD72A89091B000C9738 /* BottomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCE2AD62A89091B000C9738 /* BottomButtons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		6B3975412A87B8E500C99AF0 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		6B3975432A87BA4F00C99AF0 /* rakken.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rakken.json; sourceTree = "<group>"; };
 		6B3975442A87BA4F00C99AF0 /* boeien.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = boeien.json; sourceTree = "<group>"; };
+		6BCE2AD62A89091B000C9738 /* BottomButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				6B3975312A87AF2600C99AF0 /* iRakApp.swift */,
 				6B3975412A87B8E500C99AF0 /* Data.swift */,
 				6B3975332A87AF2600C99AF0 /* ContentView.swift */,
+				6BCE2AD62A89091B000C9738 /* BottomButtons.swift */,
 				6B3975352A87AF2600C99AF0 /* Item.swift */,
 				6B3975372A87AF2900C99AF0 /* Assets.xcassets */,
 				6B3975392A87AF2900C99AF0 /* Preview Content */,
@@ -151,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BCE2AD72A89091B000C9738 /* BottomButtons.swift in Sources */,
 				6B3975342A87AF2600C99AF0 /* ContentView.swift in Sources */,
 				6B3975362A87AF2600C99AF0 /* Item.swift in Sources */,
 				6B3975322A87AF2600C99AF0 /* iRakApp.swift in Sources */,
