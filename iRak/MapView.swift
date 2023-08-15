@@ -9,21 +9,19 @@ import SwiftUI
 import SwiftData
 import MapKit
 
-struct ContentView: View {
-    @State var datas = RakkenInfo()
-    @State var showBoeien = true
-    @State var showRakken = true
+struct MapView: View {
+    var model = MapViewModel.shared
     
     var body: some View {
         Map {
-            if showBoeien {
-                ForEach(datas.boeien, id: \.self) { boei in
+            if model.showBouys {
+                ForEach(model.reachData.bouys, id: \.self) { bouy in
                     Annotation(
-                        boei.naam,
-                        coordinate: boei.location,
+                        bouy.name,
+                        coordinate: bouy.location,
                         anchor: .bottom
                     ) {
-                        Image(systemName: "arrow.down.to.line.compact")
+                        Image(systemName: "pencil")
                             .imageScale(.small)
                             .padding(2)
                             .foregroundStyle(.white)
@@ -31,17 +29,21 @@ struct ContentView: View {
                             .cornerRadius(10)
                         
                     }
+                    
                 }
             }
             
-            if showRakken {
-                ForEach(datas.rakken, id: \.self) { rak in
-                    MapPolyline(coordinates: rak.coords)
+            if model.showReaches {
+                ForEach(model.reachData.reaches, id: \.self) { reach in
+                    MapPolyline(coordinates: reach.coords)
                         .stroke(.green, lineWidth: 2)
                 }
             }
             
         }
+//        .mapControls() {
+//            MapUserLocationButton()
+//        }
         .safeAreaInset(edge: .bottom) {
             HStack {
                 Spacer()
@@ -56,5 +58,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    MapView()
 }
