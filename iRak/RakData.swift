@@ -54,7 +54,7 @@ struct Rak: Identifiable, Hashable {
 }
 
 
-class ReadData {
+class RakkenInfo {
     var boeien: [Boei] = []
     var rakken: [Rak] = []
     

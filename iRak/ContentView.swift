@@ -10,7 +10,7 @@ import SwiftData
 import MapKit
 
 struct ContentView: View {
-    @State var datas = ReadData()
+    @State var datas = RakkenInfo()
     @State var showBoeien = true
     @State var showRakken = true
     
